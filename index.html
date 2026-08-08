@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Amiwa</title>
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="https://images-ext-1.discordapp.net/external/OAHXVUrlEKIM6tAhezxb5oNP2sDr7d598cK6eHsXAUU/https/www.image2url.com/r2/default/images/1780716946299-f08b1467-a77e-4bc5-abb9-8d07a900bc42.gif" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { 
+      height: 100%; 
+      width: 100%; 
+      font-family: Copperplate, Papyrus, fantasy; 
+      overflow: hidden;
+    }
+
+    /* Site content */
+    #site {
+      display: flex;
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      flex-direction: column;
+      justify-content: center; /* vertical center */
+      align-items: center;     /* horizontal center */
+      text-align: center;
+    }
+
+    /* Loop GIF background */
+    #loopGif {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* YBD link with exact hitbox */
+    #titleLink {
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+      line-height: 0;
+    }
+
+    /* YBD image with stronger pop animation */
+    #titleImg {
+      display: block;
+      max-width: 220px;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.25s ease, filter 0.25s ease;
+      animation: strongPop 4s ease-in-out infinite;
+      filter: drop-shadow(0 0 5px rgb(255, 255, 255)) drop-shadow(0 0 10px rgb(255, 255, 255));
+    }
+    #titleImg:hover {
+      transform: scale(1.05); /* slightly bigger on hover */
+      filter: drop-shadow(0 0 10px rgb(0, 0, 0)) drop-shadow(0 0 18px rgb(255, 255, 255));
+    }
+
+    @keyframes strongPop {
+      0%, 100% { transform: scale(1); }
+      25% { transform: scale(1.02); }
+      50% { transform: scale(1.04); } /* stronger pop */
+      75% { transform: scale(1.02); }
+    }
+
+    /* Images container */
+    .image-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .image-row {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    .image-row > div {
+      flex: 0 0 120px;
+      text-align: center;
+    }
+
+    .image-row a { text-decoration: none; display: inline-block; }
+
+    /* Circular images */
+    .circle-img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid rgb(255, 255, 255);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+    .circle-img:hover {
+      border-color: rgb(0, 0, 0);
+      box-shadow: inset 0 0 15px rgb(255, 255, 255);
+    }
+
+    /* External glow on hover */
+    .hover-glow {
+      box-shadow: 0 0 25px 8px rgb(252, 252, 252) !important;
+      transform: scale(1.1);
+    }
+
+    /* Labels */
+    .label {
+      color: #777474;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 8px;
+      line-height: 1.2;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+    /* When the image is hovered (hover-glow), label glows black */
+    .circle-img.hover-glow + .label {
+      color: #fff; /* optional: brighten the text */
+      text-shadow: 0 0 10px #000, 0 0 20px #000;
+    }
+
+    @media (max-width: 600px) {
+      .image-row { gap: 20px; }
+      .circle-img { width: 70px; height: 70px; }
+      .image-row > div { flex: 0 0 80px; }
+      .label { font-size: 12px; }
+      #titleImg { max-width: 180px; }
+    }
+  </style> 
+</head>
+<body>
+  <div id="site" aria-hidden="false">
+    <audio id="bgMusic" src="https://file.garden/aRHXz8E_TglHT95c/background.ogg" loop autoplay></audio>
+    <img id="loopGif" src="https://file.garden/aRHXz8E_TglHT95c/adsad.gif" alt="Loop Background">
+
+    <div class="image-container">
+   
+      <div class="image-row">
+        <div>
+          <a id="titleLink" href="https://discord.gg/MVwTT4j35R" target="_blank">
+            <img id="titleImg" src="https://cdn.discordapp.com/attachments/1498255215177109584/1535465297950277723/aa_transparent.gif?ex=6a77dcfe&is=6a768b7e&hm=ee0f25c7c24980155cb81adefcde7b2eccac3f36ac8afcfc5757595deb37190c&animated=true" alt="YBD" tabindex="0">
+          </a>
+        </div>
+      </div>
+
+
+      <div class="image-row">
+        <div>
+          <a href="https://discord.gg/MVwTT4j35R" target="_blank">
+            <img src="https://vshrt.in/aSuI" class="circle-img">
+            <p class="label">Womy</p>
+          </a>
+        </div>
+        <div>
+          <a href="https://discord.gg/MVwTT4j35R" target="_blank">
+            <img src="https://vshrt.in/igNv" class="circle-img">
+            <p class="label">Kyll</p>
+          </a>
+        </div>
+        <div>
+          <a href="https://discord.gg/MVwTT4j35R" target="_blank">
+            <img src="https://vshrt.in/QxPj" class="circle-img">
+            <p class="label">Grxy</p>
+          </a>
+        </div>
+        <div>
+          <a href="https://discord.gg/MVwTT4j35R" target="_blank">
+            <img src="https://vshrt.in/WrCl" class="circle-img">
+            <p class="label">Julio</p>
+          </a>
+        </div>
+      </div>
+
+      <div class="image-row">
+        <div>
+          <a href="https://discord.gg/MVwTT4j35R" target="_blank">
+            <img src="https://vshrt.in/reSR" class="circle-img">
+            <p class="label">Manto</p>
+          </a>
+        </div>
+        <div>
+          <a href="https://discord.gg/MVwTT4j35R" target="_blank">
+            <img src="https://vshrt.in/Kshc" class="circle-img">
+            <p class="label">Piso</p>
+          </a>
+        </div>
+        <div>
+          <a href="https://discord.gg/MVwTT4j35R" target="_blank">
+            <img src="https://vshrt.in/jCoT" class="circle-img">
+            <p class="label">Jnas</p>
+          </a>
+        </div>
+        <div>
+          <a href="https://discord.gg/MVwTT4j35R" target="_blank">
+            <img src="https://vshrt.in/qran" class="circle-img">
+            <p class="label">Fey</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const images = document.querySelectorAll('.circle-img');
+    const bgMusic = document.getElementById('bgMusic');
+
+    images.forEach(img => {
+      img.addEventListener('mouseenter', () => img.classList.add('hover-glow'));
+      img.addEventListener('mouseleave', () => img.classList.remove('hover-glow'));
+      img.addEventListener('click', () => img.classList.remove('hover-glow'));
+    });
+
+    function playMusic() {
+      bgMusic.play().catch(() => {});
+    }
+
+    document.addEventListener('click', playMusic);
+    document.addEventListener('touchstart', playMusic);
+  </script>
+</body>
+</html>
